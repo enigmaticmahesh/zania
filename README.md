@@ -39,8 +39,8 @@ To get a local copy up and running follow these simple example steps.
 
 # Errors
 
-> **Note:** If for the first time the server is not accessible, may be its because, the db is not initialized before server started. Please, stop and delete the container and run the **#3** step again.
+> **Note:** If for the first time the server is not accessible, may be its because, the db is not initialized before server started. Please, stop the container and run the **#3** step again.
 
 ## Usage
 
-Backend should be accessible at http://localhost:8000/ if everything works well.
+App should be accessible at http://localhost:5173/ if everything works well.
