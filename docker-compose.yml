@@ -27,3 +27,14 @@ services:
     #   - DB_PORT=$MONGODB_DOCKER_PORT
     depends_on:
       - db
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+
+    container_name: frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - server

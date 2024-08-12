@@ -1,7 +1,7 @@
 
 import psycopg2
 from psycopg2 import OperationalError
-from db_queries import CREATE_TABLE_QUERY, GET_ALL_DOCS_QUERY
+from db_queries import CREATE_TABLE_QUERY, GET_ALL_DOCS_QUERY, DELETE_TABLE_QUERY
 
 class DbConnection:
     __connection = False
@@ -28,6 +28,7 @@ class DbConnection:
             print(f"The error '{e}' occurred")
     
     def create_table(self):
+        self.execute_query(DELETE_TABLE_QUERY)
         self.execute_query(CREATE_TABLE_QUERY)
 
     def insert_default_data(self):
