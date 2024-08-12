@@ -1,0 +1,29 @@
+services:
+  db:
+    image: postgres:14-alpine
+    container_name: db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ~/apps/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=S3cret
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
+
+  server:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend
+    ports:
+      - "8000:8000"
+    # env_file: ./.env
+    # environment:
+    #   - DB_HOST=mongodb_server
+    #   - DB_USER=$MONGODB_USER
+    #   - DB_PASSWORD=$MONGODB_PASSWORD
+    #   - DB_NAME=$MONGODB_DATABASE
+    #   - DB_PORT=$MONGODB_DOCKER_PORT
+    depends_on:
+      - db
