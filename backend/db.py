@@ -12,7 +12,7 @@ class DbConnection:
             "title": col[1], 
             "position": col[2],
             "type": col[3],
-            "thumbnail": col[4]
+            "thumbnail": col[4],
         }
 
     def get_connection(self):
@@ -60,6 +60,18 @@ class DbConnection:
         docs = self.execute_read_query(GET_ALL_DOCS_QUERY)
         mappedDocs = list(map(self.mapColumns, docs))
         return mappedDocs
+
+    def update_pos(self, changes):
+        a = []
+        for (key, value) in changes.items():
+            a.append(f"WHEN {key} THEN {value}")
+
+        condition = " ".join(a)
+        print(condition)
+        update_query = (
+            f'UPDATE docs SET "position" = CASE id {condition} ELSE "position" END'
+        )
+        self.execute_query(update_query)
 
     def connect(self):
         try:

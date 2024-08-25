@@ -79,3 +79,26 @@ button:focus-visible {
   gap: 1rem;
   padding: 2rem;
 }
+
+.doc_container {
+  padding: 0.5rem;
+  display: grid;
+  place-items: center;
+
+  .doc_card {
+    padding: 0.5rem;
+  }
+}
+
+.swap_container {
+  background-color: red;
+}
+
+.overlay-container {
+  position: fixed;
+  inset: 0;
+  background-color: #7c6f6f;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+}

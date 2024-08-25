@@ -21,8 +21,15 @@ const apiSlice = createApi({
     getDocs: builder.query<{ docs: Doc[] }, void>({
       query: () => '/docs',
     }),
+    updateDocs: builder.mutation({
+      query: (body) => ({
+        url: '/update-docs',
+        method: 'PATCH',
+        body,
+      }),
+    }),
   }),
 });
 
-export const { useGetDocsQuery } = apiSlice;
+export const { useGetDocsQuery, useUpdateDocsMutation } = apiSlice;
 export default apiSlice;

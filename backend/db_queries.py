@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS docs (
 """
 
 GET_ALL_DOCS_QUERY = """
-SELECT * FROM docs
+SELECT * FROM docs ORDER BY position ASC
 """
 
 DELETE_TABLE_QUERY = """
