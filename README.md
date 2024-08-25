@@ -60,7 +60,7 @@ App should be accessible at http://localhost:5173/ if everything works well.
 
 #### Adding more functionalities
 
-1. Adding/Deleting/Updating element to the list would require one endpoint each, which would take all the required data to create an item
+1. Adding/Deleting/Updating element to the list would require one endpoint each, which would take all the required data to create/delete/update an item
 
 ### Frontend
 
